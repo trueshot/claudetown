@@ -90,9 +90,24 @@ if (args.includes('--tools')) {
   process.exit(0);
 }
 
+// --help: usage info
+if (args.includes('--help')) {
+  console.log(`readme.js — Claudetown repo interface`);
+  console.log(`  Author: claudetown gen-2 | Created: 2026-04-16`);
+  console.log(``);
+  console.log(`Usage: node readme.js [--json | --tools | --library | --help]`);
+  console.log(`  (no args)   What this repo does and how to use it`);
+  console.log(`  --json      Structured data for programmatic use`);
+  console.log(`  --tools     List tools in this repo`);
+  console.log(`  --library   Show library index`);
+  console.log(`  --help      This help message`);
+  process.exit(0);
+}
+
 // Unknown argument
-console.log(`Usage: node readme.js [--json | --tools | --library]`);
+console.log(`Usage: node readme.js [--json | --tools | --library | --help]`);
 console.log(`  (no args)   What this repo does and how to use it`);
 console.log(`  --json      Structured data for programmatic use`);
 console.log(`  --tools     List tools in this repo`);
 console.log(`  --library   Show library index`);
+console.log(`  --help      This help message`);
