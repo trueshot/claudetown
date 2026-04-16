@@ -96,7 +96,7 @@ What Nimbus adds:
 
 **Action**: Watch Agent Teams evolution. If it adds persistent queuing, evaluate migration.
 
-### 6. Thunder → Agent SDK + Routines + Managed Agents
+### 6. Ticktockman (Orchestrator) → Agent SDK + Routines + Managed Agents
 
 **Convergence: HIGH (partial)**
 
@@ -107,13 +107,13 @@ What Claude now has:
 
 What Nimbus adds:
 - **Full lifecycle orchestration** — wake/work/stop/evolve cycle, not just "run a prompt"
-- **Corporal awareness** — thunder knows who to wake, what they're working on, their billets
+- **Corporal awareness** — ticktockman knows who to wake, what they're working on, their billets
 - **Nag system** — follow-up reminders for delegated work
 - **Evolution coordination** — day-note triggers, judge dispatch, patch application
 
-**Risk**: High for basic scheduling/spawning; low for lifecycle management. Routines can replace simple cron-like tasks. Managed Agents can replace one-shot agent runs. Neither can replace thunder's awareness of the corporal network, billets, or evolution cycle.
+**Risk**: High for basic scheduling/spawning; low for lifecycle management. Routines can replace simple cron-like tasks. Managed Agents can replace one-shot agent runs. Neither can replace ticktockman's awareness of the corporal network, billets, or evolution cycle.
 
-**Action**: Consider using Routines for simple scheduled tasks (health checks, log rotation) while keeping thunder for lifecycle orchestration. Hybrid approach reduces custom code without losing capabilities.
+**Action**: Consider using Routines for simple scheduled tasks (health checks, log rotation) while keeping ticktockman for lifecycle orchestration. Hybrid approach reduces custom code without losing capabilities.
 
 ### 7. Billets → No Native Equivalent
 
@@ -140,14 +140,14 @@ Claude Code now has scheduled triggers (Routines) with cron, API, and GitHub eve
 | Patches/Evolution | Low | 24+ months | Keep evolving — biggest moat |
 | Bracelets | None | N/A | Safe for now |
 | Messaging | Medium | 12-18 months | Watch Agent Teams queuing |
-| Thunder | High (partial) | 3-6 months | Hybrid with Routines |
+| Ticktockman | High (partial) | 3-6 months | Hybrid with Routines |
 | Billets | None | N/A | Unique organizational pattern |
 | Nags | Medium | 6-12 months | Could migrate to Routines |
 
 ## Recommendations
 
 ### Adopt Now
-- **Routines** for simple scheduled tasks — reduce thunder's load for cron-like work
+- **Routines** for simple scheduled tasks — reduce ticktockman's load for cron-like work
 - **Custom subagent memory** for corporals that need it — aligns with our pattern
 
 ### Evaluate Soon
