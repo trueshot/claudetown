@@ -6,7 +6,7 @@ _Researched: 2026-04-17 by claudetown gen-2 (running on Opus 4.7 — released ye
 
 ### Breaking API Changes (matter for any Nimbus tooling calling the API)
 - **Extended thinking budgets REMOVED** — `thinking: {type: "enabled", budget_tokens: N}` returns 400
-- **Adaptive thinking is OFF by default** — must explicitly set `thinking: {type: "adaptive"}`
+- **Adaptive thinking is mandatory** on 4.7 — it's the only mode. Sending `thinking: {type: "enabled", budget_tokens: N}` returns 400. On direct API calls, still set `thinking: {type: "adaptive"}` explicitly.
 - **Sampling params removed** — non-default `temperature`/`top_p`/`top_k` return 400
 - **Thinking content hidden by default** — must opt in via `thinking.display: "summarized"`
 - **New tokenizer** — ~1.0x-1.35x more tokens for same text. Cost models need re-baselining. Give `max_tokens` more headroom.
@@ -64,7 +64,7 @@ Good for corporals following procedures. Might require slightly more explicit CL
 ## Immediate Action Items
 
 1. **Audit API calls** for `thinking.budget_tokens`, sampling params — update for 4.7 compatibility
-2. **Opt into adaptive thinking** where corporals benefit from reasoning (code review, research, judge procedure)
+2. **Set effort level** via settings.json (`effortLevel: "xhigh"`), env var (`CLAUDE_CODE_EFFORT_LEVEL`), or per-subagent frontmatter. Adaptive thinking is automatic on 4.7 — you only control intensity.
 3. **Opt into thinking display** if fog/transcript archival should include reasoning content
 4. **Re-baseline token budgets** for the 35% tokenizer inflation
 5. **Evaluate task_budget** for ticktockman — prototype on a corporal that tends to over-run
